@@ -1,0 +1,14 @@
+set dog to 45
+add add
+add dog
+add cat bird
+set
+set to
+set cat
+set cat to
+set cat to furry
+set cat to 1
+set bird dog to 200
+set snake to 1234
+print
+q
