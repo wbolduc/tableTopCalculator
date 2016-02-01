@@ -1,6 +1,11 @@
+from equ import *
+import re
+
 print ("Welcome to Table Top Calculator")
 
-reservedWords = ("to","add","help","quit","q")
+operators = ("+","-","*","=","(",")")
+reservedWords = ("to","add","help","quit","q", "print", "math","+","-","*","=","(",")")
+
 atrList = dict()
 exit = False
 
@@ -14,7 +19,7 @@ while exit == False:
         break
 
     elif command[0] == "add":
-        if len(command) <= 1:
+        if len(command) <= 1: #TODO make sure attributes contain no math
             print("add needs at least one argument")
         else:
             for atr in command[1:]:
@@ -57,7 +62,7 @@ while exit == False:
 
     elif command[0] == "print":
         #should add specificity
-        maxLen = 0
+        maxLen = 0 #should add a global maxLen
         for atr in atrList.keys():
             if len(atr) > maxLen:
                 maxLen = len(atr)
@@ -65,6 +70,13 @@ while exit == False:
         for atr in iter(atrList):
             print(atr.ljust(maxLen, " ") + " = " + str(atrList[atr][0]))
 
+
+    elif command[0] == "math":
+        for eq in command[1:]:
+            newEquation = re.split("(\s+|\+|\-|\*|\(|\))",eq)
+            newEquation = [x for x in newEquation if x != '']
+            print(newEquation)
+            evalEqu(newEquation,atrList)
 
     elif command[0] == "help":
         print("good")

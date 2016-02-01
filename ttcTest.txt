@@ -1,7 +1,7 @@
 set dog to 45
 add add
 add dog
-add cat bird
+add cat bird split
 set
 set to
 set cat
@@ -11,4 +11,6 @@ set cat to 1
 set bird dog to 200
 set snake to 1234
 print
+
+math (dog+cat)*(bird+1)-split
 q
